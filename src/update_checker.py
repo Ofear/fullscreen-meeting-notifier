@@ -53,16 +53,23 @@ class UpdateChecker:
             return None
             
         try:
-            # Replace with your actual update check URL
+            # First check if there are any releases
             response = requests.get(
-                'https://api.github.com/repos/yourusername/fullscreen-meeting-notifier/releases/latest',
+                'https://api.github.com/repos/Ofear/fullscreen-meeting-notifier/releases',
                 timeout=5
             )
             response.raise_for_status()
-            data = response.json()
+            releases = response.json()
             
-            latest_version = data['tag_name'].lstrip('v')
-            changelog_url = data['html_url']
+            if not releases:  # No releases yet
+                logger.info("No releases available yet")
+                self.save_last_check()
+                return None
+                
+            # Get latest release
+            latest = releases[0]  # Releases are sorted by date, newest first
+            latest_version = latest['tag_name'].lstrip('v')
+            changelog_url = latest['html_url']
             
             has_update = latest_version > VERSION
             self.save_last_check()
