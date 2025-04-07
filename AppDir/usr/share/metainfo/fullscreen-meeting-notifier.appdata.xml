@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.github.Ofear.fullscreen-meeting-notifier</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>MIT</project_license>
+  <name>FullScreen Meeting Notifier</name>
+  <summary>Never miss a meeting with full-screen notifications</summary>
+  
+  <description>
+    <p>
+      A full-screen meeting notification application that displays upcoming Google Calendar meetings across all monitors.
+      Perfect for ensuring you never miss a meeting, even when you're deeply focused on work.
+    </p>
+    <p>Features:</p>
+    <ul>
+      <li>Full-screen notifications on all connected monitors</li>
+      <li>Google Calendar integration</li>
+      <li>Meeting join links detection (Zoom, Meet, Teams, etc.)</li>
+      <li>Customizable appearance (background color, opacity, etc.)</li>
+      <li>Sound notifications with multiple player support</li>
+      <li>Snooze functionality</li>
+      <li>System tray integration</li>
+      <li>Automatic update checking</li>
+    </ul>
+  </description>
+  
+  <launchable type="desktop-id">fullscreen-meeting-notifier.desktop</launchable>
+  
+  <screenshots>
+    <screenshot type="default">
+      <caption>Main notification window</caption>
+      <image>https://raw.githubusercontent.com/Ofear/fullscreen-meeting-notifier/main/screenshots/notification.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>Settings window</caption>
+      <image>https://raw.githubusercontent.com/Ofear/fullscreen-meeting-notifier/main/screenshots/settings.png</image>
+    </screenshot>
+  </screenshots>
+  
+  <url type="homepage">https://github.com/Ofear/fullscreen-meeting-notifier</url>
+  <url type="bugtracker">https://github.com/Ofear/fullscreen-meeting-notifier/issues</url>
+  <url type="help">https://github.com/Ofear/fullscreen-meeting-notifier/wiki</url>
+  
+  <provides>
+    <binary>fullscreen-meeting-notifier</binary>
+    <id>fullscreen-meeting-notifier.desktop</id>
+  </provides>
+
+  <requires>
+    <display_length compare="ge">768</display_length>
+    <internet>always</internet>
+  </requires>
+  
+  <recommends>
+    <control>pointing</control>
+    <control>keyboard</control>
+  </recommends>
+
+  <categories>
+    <category>Office</category>
+    <category>Calendar</category>
+    <category>Utility</category>
+    <category>GTK</category>
+  </categories>
+
+  <keywords>
+    <keyword>meeting</keyword>
+    <keyword>notification</keyword>
+    <keyword>calendar</keyword>
+    <keyword>google-calendar</keyword>
+    <keyword>zoom</keyword>
+    <keyword>meet</keyword>
+    <keyword>teams</keyword>
+    <keyword>full-screen</keyword>
+  </keywords>
+
+  <developer_name>Ofear</developer_name>
+  <update_contact>ofear123@gmail.com</update_contact>
+
+  <content_rating type="oars-1.1" />
+
+  <releases>
+    <release version="1.0.0" date="2024-04-07">
+      <description>
+        <p>Initial release with the following features:</p>
+        <ul>
+          <li>Full-screen notifications on all monitors</li>
+          <li>Google Calendar integration</li>
+          <li>Meeting link detection</li>
+          <li>Customizable appearance</li>
+          <li>Sound notifications</li>
+          <li>System tray integration</li>
+        </ul>
+      </description>
+    </release>
+  </releases>
+
+  <custom>
+    <value key="Purism::form_factor">workstation</value>
+    <value key="GnomeSoftware::popular-background">true</value>
+  </custom>
+</component> 

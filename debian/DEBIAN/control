@@ -1,0 +1,21 @@
+Package: fullscreen-meeting-notifier
+Version: 1.0.0
+Section: utils
+Priority: optional
+Architecture: all
+Depends: python3 (>= 3.6), python3-gi, python3-gi-cairo, gir1.2-gtk-3.0, gir1.2-ayatanaappindicator3-0.1, ffmpeg, python3-google-auth-oauthlib, python3-google-api-python-client, python3-google-auth-httplib2, python3-pytz
+Maintainer: Your Name <your.email@example.com>
+Description: Full-screen meeting notifications across all monitors
+ A full-screen meeting notification application that displays upcoming
+ Google Calendar meetings across all monitors. Perfect for ensuring you
+ never miss a meeting, even when you're deeply focused on work.
+ .
+ Features:
+  * Full-screen notifications on all connected monitors
+  * Google Calendar integration
+  * Meeting join links detection (Zoom, etc.)
+  * Customizable appearance
+  * Sound notifications
+  * Snooze functionality
+  * System tray integration
+

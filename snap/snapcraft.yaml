@@ -1,0 +1,71 @@
+name: fullscreen-meeting-notifier
+base: core22
+version: '1.0.0'
+summary: Never miss a meeting with full-screen notifications
+description: |
+  A full-screen meeting notification application that displays upcoming Google Calendar
+  meetings across all monitors. Perfect for ensuring you never miss a meeting, even
+  when you're deeply focused on work.
+
+  Features:
+  * Full-screen notifications on all connected monitors
+  * Google Calendar integration
+  * Meeting join links detection (Zoom, Meet, Teams, etc.)
+  * Customizable appearance (background color, opacity, etc.)
+  * Sound notifications with multiple player support
+  * Snooze functionality
+  * System tray integration
+  * Automatic update checking
+
+grade: stable
+confinement: strict
+
+apps:
+  fullscreen-meeting-notifier:
+    command: bin/fullscreen-meeting-notifier
+    extensions: [gnome]
+    plugs:
+      - network
+      - desktop
+      - desktop-legacy
+      - wayland
+      - x11
+      - audio-playback
+      - unity7
+      - home
+      - gsettings
+      - browser-support
+    slots:
+      - dbus-daemon
+    common-id: com.github.yourusername.fullscreen-meeting-notifier
+    desktop: usr/share/applications/com.github.yourusername.fullscreen-meeting-notifier.desktop
+
+parts:
+  fullscreen-meeting-notifier:
+    plugin: python
+    source: .
+    stage-packages:
+      - python3-gi
+      - python3-gi-cairo
+      - gir1.2-gtk-3.0
+      - gir1.2-ayatanaappindicator3-0.1
+      - ffmpeg
+    python-packages:
+      - google-api-python-client>=2.108.0
+      - google-auth-oauthlib>=1.1.0
+      - google-auth-httplib2
+      - PyGObject>=3.44.1
+      - python-dateutil>=2.8.2
+      - requests>=2.31.0
+      - oauth2client>=4.1.3
+      - cachetools>=5.3.0
+      - pytz
+    override-build: |
+      craftctl default
+      # Install desktop file and icons
+      mkdir -p $CRAFT_PART_INSTALL/usr/share/applications
+      mkdir -p $CRAFT_PART_INSTALL/usr/share/icons/hicolor/scalable/apps
+      mkdir -p $CRAFT_PART_INSTALL/usr/share/metainfo
+      cp fullscreen-meeting-notifier.desktop $CRAFT_PART_INSTALL/usr/share/applications/com.github.yourusername.fullscreen-meeting-notifier.desktop
+      cp icons/fullscreen-meeting-notifier.svg $CRAFT_PART_INSTALL/usr/share/icons/hicolor/scalable/apps/com.github.yourusername.fullscreen-meeting-notifier.svg
+      cp AppDir/usr/share/metainfo/fullscreen-meeting-notifier.appdata.xml $CRAFT_PART_INSTALL/usr/share/metainfo/com.github.yourusername.fullscreen-meeting-notifier.appdata.xml 

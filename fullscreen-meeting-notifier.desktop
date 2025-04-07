@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=FullScreen Meeting Notifier
+Comment=Full-screen meeting notifications across all monitors
+Exec=fullscreen-meeting-notifier
+Icon=fullscreen-meeting-notifier
+Terminal=false
+Type=Application
+Categories=Office;Calendar;
+Keywords=meeting;notification;calendar;google;
+StartupNotify=true 
