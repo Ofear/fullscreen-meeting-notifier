@@ -48,7 +48,17 @@ pip install fullscreen-meeting-notifier
    cd fullscreen-meeting-notifier
    ```
 
-2. Install the package:
+2. Set up OAuth credentials:
+   - Go to the [Google Cloud Console](https://console.cloud.google.com/)
+   - Create a new project or select an existing one
+   - Enable the Google Calendar API
+   - Go to Credentials and create an OAuth 2.0 Client ID
+   - Choose "Desktop application" as the application type
+   - Download the client configuration file
+   - Copy `src/auth/oauth_config.json.example` to `src/auth/oauth_config.json`
+   - Replace the placeholder values with your actual credentials
+
+3. Install the package:
    ```bash
    pip install .
    ```
@@ -95,6 +105,12 @@ Settings are stored in `~/.config/meeting-notifier/settings.json`
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
+
+### Development Setup
+
+1. Follow the installation steps above
+2. Make sure to set up your OAuth credentials as described in the installation section
+3. Never commit your `oauth_config.json` file - it contains sensitive information
 
 ## License
 
